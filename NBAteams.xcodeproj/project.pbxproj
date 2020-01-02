@@ -18,6 +18,7 @@
 		024DE4E123BE64C60056FF35 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4E023BE64C60056FF35 /* UIViewController+Alerts.swift */; };
 		024DE4E323BE659E0056FF35 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4E223BE659E0056FF35 /* TeamsViewController.swift */; };
 		024DE4E523BE71AA0056FF35 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4E423BE71AA0056FF35 /* Team.swift */; };
+		024DE4E723BE72F80056FF35 /* TeamsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4E623BE72F80056FF35 /* TeamsAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		024DE4E023BE64C60056FF35 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		024DE4E223BE659E0056FF35 /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		024DE4E423BE71AA0056FF35 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		024DE4E623BE72F80056FF35 /* TeamsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				024DE4D923BE64050056FF35 /* NetworkHelper.swift */,
 				024DE4DB23BE64170056FF35 /* AppError.swift */,
+				024DE4E623BE72F80056FF35 /* TeamsAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			files = (
 				024DE4DA23BE64050056FF35 /* NetworkHelper.swift in Sources */,
 				024DE4E323BE659E0056FF35 /* TeamsViewController.swift in Sources */,
+				024DE4E723BE72F80056FF35 /* TeamsAPIClient.swift in Sources */,
 				024DE4E523BE71AA0056FF35 /* Team.swift in Sources */,
 				024DE4E123BE64C60056FF35 /* UIViewController+Alerts.swift in Sources */,
 				024DE4DC23BE64170056FF35 /* AppError.swift in Sources */,
