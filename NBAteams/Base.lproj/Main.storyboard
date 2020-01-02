@@ -7,21 +7,72 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Teams View Controller-->
+        <!--NBA Teams-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TeamsViewController" customModule="NBAteams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-6c-CYf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="254" id="Gm2-RA-6uI" customClass="TeamCell" customModule="NBAteams" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="254"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gm2-RA-6uI" id="1S9-VH-eZL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OCP-ew-fHc">
+                                                    <rect key="frame" x="107" y="51.5" width="200" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="CM2-ee-pB8"/>
+                                                        <constraint firstAttribute="width" constant="200" id="MQq-We-wFd"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtT-Sq-B8K">
+                                                    <rect key="frame" x="40" y="21" width="334" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZtT-Sq-B8K" firstAttribute="top" secondItem="1S9-VH-eZL" secondAttribute="topMargin" constant="10" id="5gg-2t-NNE"/>
+                                                <constraint firstItem="OCP-ew-fHc" firstAttribute="top" secondItem="ZtT-Sq-B8K" secondAttribute="bottom" constant="10" id="6rI-lj-Pxa"/>
+                                                <constraint firstItem="ZtT-Sq-B8K" firstAttribute="leading" secondItem="1S9-VH-eZL" secondAttribute="leadingMargin" constant="20" id="LSt-l9-wDm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZtT-Sq-B8K" secondAttribute="trailing" constant="20" id="Yas-4e-iuJ"/>
+                                                <constraint firstItem="OCP-ew-fHc" firstAttribute="centerX" secondItem="1S9-VH-eZL" secondAttribute="centerX" id="gos-gl-VbC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="ZtT-Sq-B8K" id="KJP-bY-xlX"/>
+                                            <outlet property="teamLogo" destination="OCP-ew-fHc" id="kob-wE-quo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="r2G-6c-CYf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gl5-uj-vEb"/>
+                            <constraint firstItem="r2G-6c-CYf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JPu-tJ-9Cd"/>
+                            <constraint firstItem="r2G-6c-CYf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jR6-3j-GON"/>
+                            <constraint firstItem="r2G-6c-CYf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sg9-By-iRb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eli-kV-uPd"/>
+                    <navigationItem key="navigationItem" title="NBA Teams" id="eli-kV-uPd"/>
+                    <connections>
+                        <outlet property="tableView" destination="r2G-6c-CYf" id="IPP-ku-lah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="-404"/>
+            <point key="canvasLocation" x="1944.9275362318842" y="-404.46428571428572"/>
         </scene>
         <!--Item-->
         <scene sceneID="eHG-VM-fkQ">
