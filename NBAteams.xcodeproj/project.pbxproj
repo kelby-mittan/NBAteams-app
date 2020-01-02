@@ -22,6 +22,8 @@
 		024DE4E923BE745F0056FF35 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4E823BE745F0056FF35 /* TeamCell.swift */; };
 		024DE4EB23BE85D60056FF35 /* TeamScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4EA23BE85D60056FF35 /* TeamScheduleController.swift */; };
 		024DE4ED23BE85FE0056FF35 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4EC23BE85FE0056FF35 /* GameCell.swift */; };
+		024DE4EF23BEAEF30056FF35 /* GamesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4EE23BEAEF30056FF35 /* GamesAPIClient.swift */; };
+		024DE4F123BEAF6D0056FF35 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4F023BEAF6D0056FF35 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		024DE4E823BE745F0056FF35 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		024DE4EA23BE85D60056FF35 /* TeamScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScheduleController.swift; sourceTree = "<group>"; };
 		024DE4EC23BE85FE0056FF35 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		024DE4EE23BEAEF30056FF35 /* GamesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAPIClient.swift; sourceTree = "<group>"; };
+		024DE4F023BEAF6D0056FF35 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				024DE4D923BE64050056FF35 /* NetworkHelper.swift */,
 				024DE4DB23BE64170056FF35 /* AppError.swift */,
 				024DE4E623BE72F80056FF35 /* TeamsAPIClient.swift */,
+				024DE4EE23BEAEF30056FF35 /* GamesAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				024DE4E423BE71AA0056FF35 /* Team.swift */,
+				024DE4F023BEAF6D0056FF35 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,12 +265,14 @@
 				024DE4DA23BE64050056FF35 /* NetworkHelper.swift in Sources */,
 				024DE4E323BE659E0056FF35 /* TeamsViewController.swift in Sources */,
 				024DE4E723BE72F80056FF35 /* TeamsAPIClient.swift in Sources */,
+				024DE4F123BEAF6D0056FF35 /* Game.swift in Sources */,
 				024DE4ED23BE85FE0056FF35 /* GameCell.swift in Sources */,
 				024DE4EB23BE85D60056FF35 /* TeamScheduleController.swift in Sources */,
 				024DE4E523BE71AA0056FF35 /* Team.swift in Sources */,
 				024DE4E123BE64C60056FF35 /* UIViewController+Alerts.swift in Sources */,
 				024DE4DC23BE64170056FF35 /* AppError.swift in Sources */,
 				024DE4B723BE63AB0056FF35 /* AppDelegate.swift in Sources */,
+				024DE4EF23BEAEF30056FF35 /* GamesAPIClient.swift in Sources */,
 				024DE4B923BE63AB0056FF35 /* SceneDelegate.swift in Sources */,
 				024DE4E923BE745F0056FF35 /* TeamCell.swift in Sources */,
 			);

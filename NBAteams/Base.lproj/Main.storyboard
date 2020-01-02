@@ -108,8 +108,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs/@" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEf-Tp-SwI">
-                                                    <rect key="frame" x="40" y="118.5" width="154" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="20" y="118.5" width="174" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -119,18 +119,36 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win 101-100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-kg-NS4">
+                                                    <rect key="frame" x="20" y="191" width="174" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJt-AY-7ES">
+                                                    <rect key="frame" x="20" y="75" width="174" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dEf-Tp-SwI" firstAttribute="leading" secondItem="5J0-IU-2s9" secondAttribute="leadingMargin" constant="20" id="8pG-h4-7HC"/>
+                                                <constraint firstItem="dEf-Tp-SwI" firstAttribute="leading" secondItem="5J0-IU-2s9" secondAttribute="leadingMargin" id="8pG-h4-7HC"/>
                                                 <constraint firstItem="g1i-y5-6b0" firstAttribute="leading" secondItem="5J0-IU-2s9" secondAttribute="leadingMargin" id="DkE-4u-4WW"/>
                                                 <constraint firstItem="g1i-y5-6b0" firstAttribute="top" secondItem="K0t-Ju-utc" secondAttribute="top" id="Jc8-7c-ZS0"/>
                                                 <constraint firstItem="dEf-Tp-SwI" firstAttribute="centerY" secondItem="K0t-Ju-utc" secondAttribute="centerY" id="JrB-z3-mqQ"/>
                                                 <constraint firstItem="K0t-Ju-utc" firstAttribute="leading" secondItem="dEf-Tp-SwI" secondAttribute="trailing" constant="20" id="PTb-Sv-TD3"/>
+                                                <constraint firstItem="eIp-kg-NS4" firstAttribute="bottom" secondItem="K0t-Ju-utc" secondAttribute="bottom" id="U4U-Ob-NdI"/>
+                                                <constraint firstItem="jJt-AY-7ES" firstAttribute="leading" secondItem="5J0-IU-2s9" secondAttribute="leadingMargin" id="WNV-Rk-0WS"/>
                                                 <constraint firstAttribute="trailing" secondItem="K0t-Ju-utc" secondAttribute="trailing" constant="20" symbolic="YES" id="ast-nf-Zes"/>
                                                 <constraint firstItem="EIf-wH-RYx" firstAttribute="centerX" secondItem="K0t-Ju-utc" secondAttribute="centerX" id="bXU-qC-Dpq"/>
                                                 <constraint firstItem="EIf-wH-RYx" firstAttribute="top" secondItem="5J0-IU-2s9" secondAttribute="topMargin" constant="10" id="cCK-QM-sTM"/>
                                                 <constraint firstItem="K0t-Ju-utc" firstAttribute="top" secondItem="EIf-wH-RYx" secondAttribute="bottom" constant="10" id="cIC-0P-qSG"/>
+                                                <constraint firstItem="eIp-kg-NS4" firstAttribute="leading" secondItem="5J0-IU-2s9" secondAttribute="leadingMargin" id="cu6-3g-YkX"/>
                                                 <constraint firstItem="K0t-Ju-utc" firstAttribute="leading" secondItem="g1i-y5-6b0" secondAttribute="trailing" constant="20" id="i6b-5U-3fB"/>
+                                                <constraint firstItem="K0t-Ju-utc" firstAttribute="leading" secondItem="jJt-AY-7ES" secondAttribute="trailing" constant="20" id="pJe-ri-5Cc"/>
+                                                <constraint firstItem="K0t-Ju-utc" firstAttribute="leading" secondItem="eIp-kg-NS4" secondAttribute="trailing" constant="20" id="qfQ-JB-OAq"/>
+                                                <constraint firstItem="jJt-AY-7ES" firstAttribute="top" secondItem="g1i-y5-6b0" secondAttribute="bottom" constant="8" id="yci-yH-ezP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

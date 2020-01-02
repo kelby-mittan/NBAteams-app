@@ -1,5 +1,5 @@
 //
-//  TeamsAPIClient.swift
+//  GamesAPIClient.swift
 //  NBAteams
 //
 //  Created by Kelby Mittan on 1/2/20.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct TeamsAPIClient {
+struct GamesAPIClient {
     
-    static func getTeams(completion: @escaping (Result<[Team],AppError>) -> ()) {
+    static func getGames(for teamId: Int, completion: @escaping (Result<[Game],AppError>) -> ()) {
         
-        let teamsEndpointString = "https://www.balldontlie.io/api/v1/teams"
+        let gameEndpointString = "https://www.balldontlie.io/api/v1/games?seasons[]=2019&team_ids[]=\(teamId.description)&per_page=82"
         
-        guard let url = URL(string: teamsEndpointString) else {
-            completion(.failure(.badURL(teamsEndpointString)))
+        guard let url = URL(string: gameEndpointString) else {
+            completion(.failure(.badURL(gameEndpointString)))
             return
         }
         
@@ -27,14 +27,13 @@ struct TeamsAPIClient {
                 completion(.failure(.networkClientError(appError)))
             case .success(let data):
                 do {
-                    let teamData = try JSONDecoder().decode(TeamData.self, from: data)
-                    let teams = teamData.data
-                    completion(.success(teams))
+                    let gameData = try JSONDecoder().decode(GameData.self, from: data)
+                    let games = gameData.data
+                    completion(.success(games))
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
             }
         }
     }
-    
 }
