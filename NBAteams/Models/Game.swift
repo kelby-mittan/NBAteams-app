@@ -27,6 +27,8 @@ struct Game: Codable {
         case visitorTeam = "visitor_team"
         case visitorTeamScore = "visitor_team_score"
     }
+    
+    
 }
 
 //"data": [

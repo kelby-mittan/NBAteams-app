@@ -20,7 +20,6 @@ class TeamsViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTeams()
@@ -28,7 +27,6 @@ class TeamsViewController: UIViewController {
         tableView.delegate = self
         
     }
-    
     
     private func loadTeams() {
         TeamsAPIClient.getTeams { [weak self] (result) in
@@ -46,13 +44,14 @@ class TeamsViewController: UIViewController {
         
     }
     
-    //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //            guard let teamVC = segue.destination as? TeamScheduleController, let indexPath = tableView.indexPathForSelectedRow else {
-    //                fatalError("could not load")
-    //            }
-    //            teamVC.team = teams[indexPath.row]
-    //        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let teamVC = segue.destination as? TeamScheduleController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("could not load")
+        }
+        teamVC.teamId = teams[indexPath.row].id
+        teamVC.team = teams[indexPath.row]
+    }
     
 }
 
