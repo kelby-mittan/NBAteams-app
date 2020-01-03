@@ -27,18 +27,21 @@ class TeamScheduleController: UIViewController {
             }
         }
     }
-    
-    var scheduledGames = [Game]()
-    
+        
     var teamId: Int?
     var team: Team?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGames()
+//        loadSections()
         tableView.dataSource = self
         tableView.delegate = self
-        
+        navigationItem.title = team?.abbreviation
+    }
+    
+    func loadSections() {
+        gamesSections = getGameSections()
     }
     
     
@@ -59,7 +62,7 @@ class TeamScheduleController: UIViewController {
     }
     
     private func getGameSections() -> [[Game]] {
-        
+//        var schGames = [Game]()
         GamesAPIClient.getGames(for: teamId!) { [weak self] (result) in
             switch result {
             case .failure(let appError):
@@ -68,24 +71,25 @@ class TeamScheduleController: UIViewController {
                 }
             case .success(let games):
                 DispatchQueue.main.async {
-                    self?.scheduledGames = games.sorted { $0.date < $1.date }
+//                    schGames = games.sorted { $0.date < $1.date }
+                    self?.games = games.sorted { $0.date < $1.date }
                 }
             }
         }
         var monthTitles = Set<String>()
-        
-        for game in scheduledGames {
+
+        for game in games {
             let month = game.date.convertISODate().components(separatedBy: " ").first ?? ""
             monthTitles.insert(month)
         }
-        
+
         var sectionsArr = Array(repeating: [Game](), count: monthTitles.count)
         var currentIndex = 0
-        var currentMonth = scheduledGames.first?.date.convertISODate().components(separatedBy: " ").first ?? ""
-        
-        for game in scheduledGames {
+        var currentMonth = games.first?.date.convertISODate().components(separatedBy: " ").first ?? ""
+
+        for game in games {
             let theMonth = game.date.convertISODate().components(separatedBy: " ").first
-        
+
                 if theMonth == currentMonth {
                     sectionsArr[currentIndex].append(game)
                 } else {
@@ -103,6 +107,7 @@ extension TeamScheduleController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
+//        return gamesSections[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,12 +115,21 @@ extension TeamScheduleController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as? GameCell else {
             fatalError()
         }
+//        let game = gamesSections[indexPath.section][indexPath.row]
         let game = games[indexPath.row]
         cell.selectedTeamId = teamId
         cell.configureCell(for: game)
         
         return cell
     }
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return gamesSections.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return gamesSections[section].first?.date.convertISODate().components(separatedBy: " ").first
+//    }
 }
 
 extension TeamScheduleController: UITableViewDelegate {

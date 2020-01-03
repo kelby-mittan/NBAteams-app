@@ -41,31 +41,3 @@ struct GamesAPIClient {
 }
 
 
-//static func getStockSections() -> [[AppleStockData]] {
-//    let stocks = getStocks()
-//    var monthTitles = Set<String>()
-//
-//    for stock in stocks {
-//        var label = stock.label
-//        var monthYear = label.components(separatedBy: " ")
-//        monthYear.remove(at: 1)
-//        label = monthYear.joined()
-//        monthTitles.insert(label)
-//    }
-//
-//    var sectionsArr = Array(repeating: [AppleStockData](), count: monthTitles.count)
-//    var currentIndex = 0
-//    var currentMonth = stocks.first?.label.components(separatedBy: " ").first ?? ""
-//    for stock in stocks {
-//        let month = stock.label.components(separatedBy: " ").first ?? ""
-//
-//        if month == currentMonth {
-//            sectionsArr[currentIndex].append(stock)
-//        } else {
-//            currentIndex += 1
-//            currentMonth = stock.label.components(separatedBy: " ").first ?? ""
-//            sectionsArr[currentIndex].append(stock)
-//        }
-//    }
-//    return sectionsArr
-//}
