@@ -14,12 +14,12 @@ struct PlayerData: Codable {
 struct Player: Codable {
     let id: Int
     let firstName: String
-    let heightFeet: Int
-    let heightInches: Int
+    let heightFeet: Int?
+    let heightInches: Int?
     let lastName: String
     let position: String
     let team: Team
-    let weightPounds: Int
+    let weightPounds: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
