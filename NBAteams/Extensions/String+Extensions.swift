@@ -6,7 +6,7 @@
 //  Copyright © 2020 Kelby Mittan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     
@@ -54,3 +54,4 @@ extension String {
         return date
     }
 }
+

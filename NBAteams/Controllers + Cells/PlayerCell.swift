@@ -31,13 +31,7 @@ class PlayerCell: UITableViewCell {
             heightLabel.text = "Height: N/A"
             return
         }
-        heightLabel.text = "Height: \(feet.description)' \(inches.description)"
-        
-//        if player.heightFeet == nil || player.heightInches == nil {
-//            heightLabel.text = "Height: N/A"
-//        } else {
-//            heightLabel.text = "Height: \(player.heightFeet ?? )' \(player.heightInches)\""
-//        }
+        heightLabel.text = "Height: \(feet.description)' \(inches.description)\""
         
     }
     
