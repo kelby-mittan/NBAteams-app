@@ -12,9 +12,9 @@ struct StatData: Codable {
     let data: [Stat]
 }
 struct Stat: Codable {
-    let gamesPlayed: Int
-    let playerId: Int
-    let season: Int
+    let gamesPlayed: Int?
+    let playerId: Int?
+    let season: Int?
     let min: String
     let fgm: Double
     let fga: Double

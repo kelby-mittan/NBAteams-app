@@ -21,7 +21,7 @@ class PlayerDetailController: UIViewController {
     
     var player: Player?
     
-    var stat: Stat?
+    var seasonStat: Stat?
     
     var selectedRow = Int()
     
@@ -60,7 +60,7 @@ class PlayerDetailController: UIViewController {
                 }
             case .success(let stat):
                 DispatchQueue.main.async {
-                    self?.stat = stat
+                    self?.seasonStat = stat
                 }
             }
         }
@@ -92,47 +92,47 @@ class PlayerDetailController: UIViewController {
         
         switch selectedRow {
         case 0:
-            statLabel.text = "Games: \(stat?.gamesPlayed.description ?? "N/A")"
+            statLabel.text = "Games: \(seasonStat?.gamesPlayed?.description ?? "N/A")"
         case 1:
-            statLabel.text = "Min: \(stat?.min ?? "N/A")"
+            statLabel.text = "Min: \(seasonStat?.min ?? "N/A")"
         case 2:
-            statLabel.text = "FG Made: \(stat?.fgm.description ?? "N/A")"
+            statLabel.text = "FG Made: \(seasonStat?.fgm.description ?? "N/A")"
         case 3:
-            statLabel.text = "FG Attempts: \(stat?.fga.description ?? "N/A")"
+            statLabel.text = "FG Attempts: \(seasonStat?.fga.description ?? "N/A")"
         case 4:
-            statLabel.text = "3's Made: \(stat?.fg3m.description ?? "N/A")"
+            statLabel.text = "3's Made: \(seasonStat?.fg3m.description ?? "N/A")"
         case 5:
-            statLabel.text = "3's Attempted: \(stat?.fg3a.description ?? "N/A")"
+            statLabel.text = "3's Attempted: \(seasonStat?.fg3a.description ?? "N/A")"
         case 6:
-            statLabel.text = "Free Throws Made: \(stat?.ftm.description ?? "N/A")"
+            statLabel.text = "Free Throws Made: \(seasonStat?.ftm.description ?? "N/A")"
         case 7:
-            statLabel.text = "Free Throw Attempts: \(stat?.fta.description ?? "N/A")"
+            statLabel.text = "Free Throw Attempts: \(seasonStat?.fta.description ?? "N/A")"
         case 8:
-            statLabel.text = "Off. Reb: \(stat?.oreb.description ?? "N/A")"
+            statLabel.text = "Off. Reb: \(seasonStat?.oreb.description ?? "N/A")"
         case 9:
-            statLabel.text = "Def. Reb: \(stat?.dreb.description ?? "N/A")"
+            statLabel.text = "Def. Reb: \(seasonStat?.dreb.description ?? "N/A")"
         case 10:
-            statLabel.text = "Rebound %: \(stat?.reb.description ?? "N/A")"
+            statLabel.text = "Rebound %: \(seasonStat?.reb.description ?? "N/A")"
         case 11:
-            statLabel.text = "Assists: \(stat?.ast.description ?? "N/A")"
+            statLabel.text = "Assists: \(seasonStat?.ast.description ?? "N/A")"
         case 12:
-            statLabel.text = "Steals: \(stat?.stl.description ?? "N/A")"
+            statLabel.text = "Steals: \(seasonStat?.stl.description ?? "N/A")"
         case 13:
-            statLabel.text = "Blocks: \(stat?.blk.description ?? "N/A")"
+            statLabel.text = "Blocks: \(seasonStat?.blk.description ?? "N/A")"
         case 14:
-            statLabel.text = "Turnovers: \(stat?.turnover.description ?? "N/A")"
+            statLabel.text = "Turnovers: \(seasonStat?.turnover.description ?? "N/A")"
         case 15:
-            statLabel.text = "Fouls: \(stat?.pf.description ?? "N/A")"
+            statLabel.text = "Fouls: \(seasonStat?.pf.description ?? "N/A")"
         case 16:
-            statLabel.text = "Points: \(stat?.pts.description ?? "N/A")"
+            statLabel.text = "Points: \(seasonStat?.pts.description ?? "N/A")"
         case 17:
-            let fg = (stat?.fgPct ?? 0) * 100
+            let fg = (seasonStat?.fgPct ?? 0) * 100
             statLabel.text = "FG %: \(String(format: "%.2f", fg))%"
         case 18:
-            let fg3 = (stat?.fg3Pct ?? 0) * 100
+            let fg3 = (seasonStat?.fg3Pct ?? 0) * 100
             statLabel.text = "3 PT %: \(String(format: "%.2f", fg3))%"
         case 19:
-            let ftPct = (stat?.ftPct ?? 0) * 100
+            let ftPct = (seasonStat?.ftPct ?? 0) * 100
             statLabel.text = "Free Throw %: \(String(format: "%.2f", ftPct))%"
         default:
             statLabel.text = ""
@@ -155,6 +155,7 @@ class PlayerDetailController: UIViewController {
         }
         
         predictionVC.player = player
+        predictionVC.seasonAvg = seasonStat!.pts
     }
     
 }

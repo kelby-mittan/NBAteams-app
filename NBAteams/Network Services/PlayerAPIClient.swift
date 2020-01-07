@@ -64,5 +64,31 @@ struct PlayerAPIClient {
         }
     }
     
+    static func getStatsDated(for playerId: Int, completion: @escaping (Result<[Stat],AppError>) -> ()) {
+        
+        let statEndpointString = "https://www.balldontlie.io/api/v1/stats?seasons[]=2019&player_ids[]=\(playerId.description)&start_date=2019-12-20&end_date=2020-01-06"
+        
+        guard let url = URL(string: statEndpointString) else {
+            completion(.failure(.badURL(statEndpointString)))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let statData = try JSONDecoder().decode(StatData.self, from: data)
+                    let stats = statData.data
+                    completion(.success(stats))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+    }
     
 }

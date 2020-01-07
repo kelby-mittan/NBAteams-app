@@ -428,46 +428,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-Nh-oGK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-Nh-oGK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="337"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRUST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W01-qa-N2I">
-                                <rect key="frame" x="100" y="280" width="214" height="51.5"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="44"/>
-                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-K0-6j2">
-                                <rect key="frame" x="100" y="362" width="214" height="35"/>
+                                <rect key="frame" x="20" y="406.5" width="374" height="35"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f2H-J3-c1Q">
-                                <rect key="frame" x="87" y="488.5" width="240" height="200"/>
+                                <rect key="frame" x="87" y="506.5" width="240" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="I4H-5h-cXZ"/>
                                     <constraint firstAttribute="width" constant="240" id="wFW-Mx-5Ce"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiR-6p-ryK">
-                                <rect key="frame" x="190" y="403.5" width="34" height="35"/>
+                                <rect key="frame" x="190" y="451.5" width="34" height="35"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRUST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W01-qa-N2I">
+                                <rect key="frame" x="100" y="345" width="214" height="51.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="44"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="f2H-J3-c1Q" firstAttribute="top" secondItem="xiR-6p-ryK" secondAttribute="bottom" constant="50" id="C2r-1h-sOh"/>
+                            <constraint firstItem="xiR-6p-ryK" firstAttribute="top" secondItem="mvq-K0-6j2" secondAttribute="bottom" constant="10" id="GDW-8k-nM8"/>
                             <constraint firstItem="f2H-J3-c1Q" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="LBm-la-6rU"/>
-                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="mvq-K0-6j2" secondAttribute="trailing" constant="100" id="N0y-zF-hbL"/>
-                            <constraint firstItem="W01-qa-N2I" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" constant="280" id="Nrl-kx-NHr"/>
+                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="mvq-K0-6j2" secondAttribute="trailing" constant="20" id="N0y-zF-hbL"/>
+                            <constraint firstItem="mvq-K0-6j2" firstAttribute="top" secondItem="W01-qa-N2I" secondAttribute="bottom" constant="10" id="ReG-lV-gkP"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" id="Rk5-E5-g55"/>
-                            <constraint firstItem="xiR-6p-ryK" firstAttribute="centerY" secondItem="SQ0-9t-2VS" secondAttribute="centerY" id="WZi-hC-fbe"/>
-                            <constraint firstItem="mvq-K0-6j2" firstAttribute="top" secondItem="hyM-Nh-oGK" secondAttribute="bottom" constant="25" id="WcU-kF-0zK"/>
+                            <constraint firstItem="f2H-J3-c1Q" firstAttribute="top" secondItem="xiR-6p-ryK" secondAttribute="bottom" constant="20" id="UAX-CH-xLW"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="height" secondItem="SQ0-9t-2VS" secondAttribute="height" multiplier="0.4" id="ZRj-g8-H3j"/>
-                            <constraint firstItem="mvq-K0-6j2" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="100" id="hYr-ic-aJX"/>
+                            <constraint firstItem="W01-qa-N2I" firstAttribute="top" secondItem="hyM-Nh-oGK" secondAttribute="bottom" constant="8" id="h5s-VA-tz6"/>
+                            <constraint firstItem="mvq-K0-6j2" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="20" id="hYr-ic-aJX"/>
                             <constraint firstItem="xiR-6p-ryK" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="iP1-xX-B8h"/>
                             <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="W01-qa-N2I" secondAttribute="trailing" constant="100" id="lCd-6n-RDt"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="width" secondItem="SQ0-9t-2VS" secondAttribute="width" id="tes-fc-il8"/>

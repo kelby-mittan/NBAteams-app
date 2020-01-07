@@ -18,22 +18,13 @@ class PredictionViewController: UIViewController {
     
     var player: Player?
     
-    var games = [Game]() {
-        didSet {
-            GamesAPIClient.getGames(for: (player?.team.id)!) { [weak self] (result) in
-                switch result {
-                case .failure(let appError):
-                    DispatchQueue.main.async {
-                        self?.showAlert(title: "Error", message: "\(appError)")
-                    }
-                case .success(let games):
-                    DispatchQueue.main.async {
-                        self?.games = games.sorted { $0.date < $1.date }
-                    }
-                }
-            }
-        }
-    }
+    var seasonAvg = Double()
+    
+    var weekPtAvg = Double()
+    
+    var weeksStats = [Stat]()
+    
+    var count = 0.0
     
     var newGames = [Game]()
     
@@ -41,6 +32,7 @@ class PredictionViewController: UIViewController {
         super.viewDidLoad()
         
         loadGames()
+        loadThisWeeksPTS()
         updateUI()
     }
     
@@ -53,7 +45,7 @@ class PredictionViewController: UIViewController {
                 }
             case .success(let games):
                 DispatchQueue.main.async {
-                    self?.games = games.sorted { $0.date < $1.date }
+//                    self?.games = games.sorted { $0.date < $1.date }
                     
                     for game in games {
                         if game.status != "Final" {
@@ -62,17 +54,47 @@ class PredictionViewController: UIViewController {
                         }
                     }
                     
-                    self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
+                    self?.dateLabel.text = self?.newGames.first?.date.convertISODate()
                     
-//                    if self?.player?.team.abbreviation != games.first?.homeTeam.abbreviation {
-//                        self?.vsTeamLogo.image = UIImage(named: (games.first?.homeTeam.abbreviation)!)
-//                    } else {
-//                        self?.vsTeamLogo.image = UIImage(named: (games.first?.visitorTeam.abbreviation)!)
-//                    }
+                    if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
+                        self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
+                    } else {
+                        self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.visitorTeam.abbreviation)!)
+                    }
                     
                 }
             }
         }
+    }
+    
+    private func loadThisWeeksPTS() {
+        PlayerAPIClient.getStatsDated(for: player!.id) { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Error", message: "\(appError)")
+                }
+            case .success(let stats):
+                DispatchQueue.main.async {
+                    
+                    for stat in stats {
+                        if stat.pts != 0 {
+                            self?.weekPtAvg += stat.pts
+                            self?.count += 1
+                        }
+                    }
+                    
+                    guard let week = self?.weekPtAvg, let count = self?.count else {
+                        return
+                    }
+                    
+                    let avg = (week / count)
+                    print(avg)
+                    print(count)
+                }
+            }
+        }
+        
     }
     
     func updateUI() {
@@ -89,7 +111,7 @@ class PredictionViewController: UIViewController {
                 }
             }
         }
-        
+        trustPointsLabel.text = seasonAvg.description
         //        vsTeamLogo.image = UIImage(named: (games.first?.homeTeam.abbreviation)!)
     }
     
