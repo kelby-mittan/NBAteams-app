@@ -152,34 +152,13 @@ class PlayerDetailController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let predictionVC = segue.destination as? PredictionViewController else {
+        guard let predictionVC = segue.destination as? PredictionViewController, let seasonPts = seasonStat?.pts else {
             fatalError("could not load")
         }
         
         predictionVC.player = player
-        predictionVC.seasonAvg = seasonStat!.pts
+        predictionVC.seasonAvg = seasonPts
         
-        //        GamesAPIClient.getGames(for: (player?.team.id)!) { [weak self] (result) in
-        //                    switch result {
-        //                    case .failure(let appError):
-        //                        DispatchQueue.main.async {
-        //                            self?.showAlert(title: "Error", message: "\(appError)")
-        //                        }
-        //                    case .success(let games):
-        //                        DispatchQueue.main.async {
-        //        //                    self?.games = games.sorted { $0.date < $1.date }
-        //
-        //                            for game in games {
-        //                                if game.status != "Final" {
-        //                                    self?.newGames.append(game)
-        //                                    self?.newGames = (self?.newGames.sorted { $0.date < $1.date })!
-        //                                }
-        //                            }
-        //                            predictionVC.newGames = self!.newGames
-        //
-        //                        }
-        //                    }
-        //                }
     }
     
 }
