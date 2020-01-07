@@ -140,8 +140,6 @@ class PlayerDetailController: UIViewController {
             statLabel.text = ""
         }
         
-        
-        
         //        statLabel.isHidden = false
         //        view.addSubview(statLabel)
         //        statLabel.frame = view.frame
@@ -153,7 +151,8 @@ class PlayerDetailController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let predictionVC = segue.destination as? PredictionViewController, let seasonPts = seasonStat?.pts else {
-            fatalError("could not load")
+            showAlert(title: "Error", message: "Could not get stats")
+            return
         }
         
         predictionVC.player = player

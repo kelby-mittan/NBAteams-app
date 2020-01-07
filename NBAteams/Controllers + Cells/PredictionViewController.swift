@@ -74,7 +74,7 @@ class PredictionViewController: UIViewController {
                     }
                     
                     self?.dateLabel.text = self?.newGames.first?.date.convertISODate()
-                    
+                    print(self?.newGames.first?.date ?? "")
                     if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
                         self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
                         
@@ -114,29 +114,60 @@ class PredictionViewController: UIViewController {
                         }
                     }
                     
-                    guard let week = self?.weekPtAvg, let count = self?.count, let season = self?.seasonAvg else {
+                    guard let week = self?.weekPtAvg, let count = self?.count, let season = self?.seasonAvg, let oppTeam = self?.opposition, let fireTeams = self?.goodTeams, let badTeams = self?.trashTeams else {
                         return
                     }
                     
                     let avg = (week / count)
                     
-                    let seasonWeek = (season + avg) / 2
+                    var seasonWeek = (season + avg) / 2
                     
                     self?.weekSeason = seasonWeek
                     
+                    switch season {
+                    case 30...:
+                        if fireTeams.contains(oppTeam) {
+                            seasonWeek -= 6
+                        } else if badTeams.contains(oppTeam) {
+                            seasonWeek += 8
+                        }
+                    case 25...30:
+                        if fireTeams.contains(oppTeam) {
+                            seasonWeek -= 4
+                        } else if badTeams.contains(oppTeam) {
+                            seasonWeek += 6
+                        }
+                    case 20...25:
+                        if fireTeams.contains(oppTeam) {
+                            seasonWeek -= 2
+                        } else if badTeams.contains(oppTeam) {
+                            seasonWeek += 4
+                        }
+                    case 15...20:
+                        if fireTeams.contains(oppTeam) {
+                            seasonWeek -= 2
+                        } else if badTeams.contains(oppTeam) {
+                            seasonWeek += 2
+                        }
+                    default:
+                        self?.trustPointsLabel.text = "\((String(format: "%.0f", seasonWeek)))...TRUST"
+                    }
                     
+                    self?.trustPointsLabel.text = "TRUST...\((String(format: "%.0f", seasonWeek)))"
                     
                     print(seasonWeek)
                     print(count)
+                    print(avg)
                 }
             }
         }
         print(opposition.description)
-        
+  
     }
     
+    
     func updateUI() {
-        //        loadGames()
+
         playerImage.getImage(with: "https://nba-players.herokuapp.com/players/\(player?.lastName.lowercased() ?? "")/\(player?.firstName.lowercased() ?? "")") { [weak self] (result) in
             switch result {
             case .failure:
@@ -149,45 +180,6 @@ class PredictionViewController: UIViewController {
                 }
             }
         }
-        trustPointsLabel.text = seasonAvg.description
     }
     
 }
-
-
-//    private func loadGames() {
-//        GamesAPIClient.getGames(for: (player?.team.id)!) { [weak self] (result) in
-//            switch result {
-//            case .failure(let appError):
-//                DispatchQueue.main.async {
-//                    self?.showAlert(title: "Error", message: "\(appError)")
-//                }
-//            case .success(let games):
-//                DispatchQueue.main.async {
-//                    self?.newGames = games.sorted { $0.date < $1.date }
-//
-//                    for game in games {
-//                        if game.status != "Final" {
-//                            self?.newGames.append(game)
-//                            self?.newGames = (self?.newGames.sorted { $0.date < $1.date })!
-//                        }
-//                    }
-//
-//                    self?.dateLabel.text = self?.newGames.first?.date.convertISODate()
-//
-//                    if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
-//                        self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
-//
-//                        self?.opposition = (self?.newGames.first?.homeTeam.id)!
-//
-//                    } else {
-//                        self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.visitorTeam.abbreviation)!)
-//
-//                        self?.opposition = (self?.newGames.first?.visitorTeam.id)!
-//
-//                    }
-//
-//                }
-//            }
-//        }
-//    }
