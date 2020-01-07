@@ -19,4 +19,4 @@ func predictPoints() {
 
 ## GIF
 
-![gif] (Assets/nba-app.gif)
+![gif](Assets/nba-app.gif)
