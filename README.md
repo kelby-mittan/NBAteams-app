@@ -14,4 +14,4 @@ func predictPoints() {
 
 ## ScreenShot of App
 
-![teamsTable](Assets/teamsTable.png)
+![teamsTable1](Assets/teamsTable1.png)
