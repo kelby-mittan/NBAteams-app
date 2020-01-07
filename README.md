@@ -15,3 +15,8 @@ func predictPoints() {
 ## ScreenShot of App
 
 ![teamsTable1](Assets/teamsTable1.png)
+
+
+## GIF
+
+![gif] (Assets/nba-app.gif)
