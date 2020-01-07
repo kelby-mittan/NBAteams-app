@@ -9,11 +9,11 @@
 import UIKit
 
 class PlayerDetailController: UIViewController {
-
+    
     @IBOutlet var playerImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var statPicker: UIPickerView!
-
+    
     @IBOutlet var statLabel: UILabel! = {
         let label = UILabel()
         return label
@@ -25,14 +25,16 @@ class PlayerDetailController: UIViewController {
     
     var selectedRow = Int()
     
+    var newGames = [Game]()
+    
     private let stats = ["Games", "Minutes", "FG Made", "FG Attempts", "3's Made", "3's Attempted", "Free Throws Made", "Free Throw Attempts", "Off. Reb", "Def. Reb", "Rebound %", "Assists", "Steals", "Blocks", "Turnovers", "Fouls", "Points", "FG %", "3 PT %", "Free Throw %"]
     
     var statName: String?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         statPicker.dataSource = self
         statPicker.delegate = self
         nameLabel.layer.masksToBounds = true
@@ -46,10 +48,10 @@ class PlayerDetailController: UIViewController {
         updateUI()
     }
     
-//    @objc func handleObject() {
-//        let stat = 100.0
-//        self.statLabel.text = "\(stat)"
-//    }
+    //    @objc func handleObject() {
+    //        let stat = 100.0
+    //        self.statLabel.text = "\(stat)"
+    //    }
     
     private func loadPlayerStats() {
         PlayerAPIClient.getPlayerStats(for: player!.id) { [weak self] (result) in
@@ -140,12 +142,12 @@ class PlayerDetailController: UIViewController {
         
         
         
-//        statLabel.isHidden = false
-//        view.addSubview(statLabel)
-//        statLabel.frame = view.frame
-//
-//        let displayLink = CADisplayLink(target: self, selector: #selector(handleObject))
-//        displayLink.add(to: .main, forMode: .default)
+        //        statLabel.isHidden = false
+        //        view.addSubview(statLabel)
+        //        statLabel.frame = view.frame
+        //
+        //        let displayLink = CADisplayLink(target: self, selector: #selector(handleObject))
+        //        displayLink.add(to: .main, forMode: .default)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -156,6 +158,28 @@ class PlayerDetailController: UIViewController {
         
         predictionVC.player = player
         predictionVC.seasonAvg = seasonStat!.pts
+        
+        //        GamesAPIClient.getGames(for: (player?.team.id)!) { [weak self] (result) in
+        //                    switch result {
+        //                    case .failure(let appError):
+        //                        DispatchQueue.main.async {
+        //                            self?.showAlert(title: "Error", message: "\(appError)")
+        //                        }
+        //                    case .success(let games):
+        //                        DispatchQueue.main.async {
+        //        //                    self?.games = games.sorted { $0.date < $1.date }
+        //
+        //                            for game in games {
+        //                                if game.status != "Final" {
+        //                                    self?.newGames.append(game)
+        //                                    self?.newGames = (self?.newGames.sorted { $0.date < $1.date })!
+        //                                }
+        //                            }
+        //                            predictionVC.newGames = self!.newGames
+        //
+        //                        }
+        //                    }
+        //                }
     }
     
 }

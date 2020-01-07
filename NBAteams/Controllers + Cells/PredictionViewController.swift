@@ -26,7 +26,43 @@ class PredictionViewController: UIViewController {
     
     var count = 0.0
     
+    var weekSeason = Double()
+    
     var newGames = [Game]()
+    
+//    var opposition = Int() {
+//        didSet {
+//            GamesAPIClient.getGames(for: (player?.team.id)!) { [weak self] (result) in
+//                switch result {
+//                case .failure(let appError):
+//                    DispatchQueue.main.async {
+//                        self?.showAlert(title: "Error", message: "\(appError)")
+//                    }
+//                case .success(let games):
+//                    DispatchQueue.main.async {
+//
+//                        for game in games {
+//                            if game.status != "Final" {
+//                                self?.newGames.append(game)
+//                                self?.newGames = (self?.newGames.sorted { $0.date < $1.date })!
+//                            }
+//                        }
+//
+//                        if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
+//                            self?.opposition = (self?.newGames.first?.homeTeam.id)!
+//                        } else {
+//                            self?.opposition = (self?.newGames.first?.visitorTeam.id)!
+//                        }
+//
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    let goodTeams = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+    let mehTeams = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+    let trashTeams = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +81,7 @@ class PredictionViewController: UIViewController {
                 }
             case .success(let games):
                 DispatchQueue.main.async {
-//                    self?.games = games.sorted { $0.date < $1.date }
+                    //                    self?.games = games.sorted { $0.date < $1.date }
                     
                     for game in games {
                         if game.status != "Final" {
@@ -84,21 +120,26 @@ class PredictionViewController: UIViewController {
                         }
                     }
                     
-                    guard let week = self?.weekPtAvg, let count = self?.count else {
+                    guard let week = self?.weekPtAvg, let count = self?.count, let season = self?.seasonAvg else {
                         return
                     }
                     
                     let avg = (week / count)
-                    print(avg)
+                    
+                    let seasonWeek = (season + avg) / 2
+                    
+                    self?.weekSeason = seasonWeek
+                    print(seasonWeek)
                     print(count)
                 }
             }
         }
+//        print(opposition.description)
         
     }
     
     func updateUI() {
-//        loadGames()
+        //        loadGames()
         playerImage.getImage(with: "https://nba-players.herokuapp.com/players/\(player?.lastName.lowercased() ?? "")/\(player?.firstName.lowercased() ?? "")") { [weak self] (result) in
             switch result {
             case .failure:
