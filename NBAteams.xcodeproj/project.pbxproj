@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02496AC423C3AAA8003815A1 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02496AC323C3AAA8003815A1 /* Stat.swift */; };
+		024D738023C4223F0039FF65 /* PredictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024D737F23C4223F0039FF65 /* PredictionViewController.swift */; };
 		024DE4B723BE63AB0056FF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4B623BE63AB0056FF35 /* AppDelegate.swift */; };
 		024DE4B923BE63AB0056FF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DE4B823BE63AB0056FF35 /* SceneDelegate.swift */; };
 		024DE4BE23BE63AB0056FF35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024DE4BC23BE63AB0056FF35 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		02496AC323C3AAA8003815A1 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		024D737F23C4223F0039FF65 /* PredictionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewController.swift; sourceTree = "<group>"; };
 		024DE4B323BE63AB0056FF35 /* NBAteams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAteams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		024DE4B623BE63AB0056FF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		024DE4B823BE63AB0056FF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				024DE4EA23BE85D60056FF35 /* TeamScheduleController.swift */,
 				0252AB2223C2A7CC00FD295F /* PlayerSearchController.swift */,
 				0252AB2C23C2C8CC00FD295F /* PlayerDetailController.swift */,
+				024D737F23C4223F0039FF65 /* PredictionViewController.swift */,
 				024DE4E823BE745F0056FF35 /* TeamCell.swift */,
 				024DE4EC23BE85FE0056FF35 /* GameCell.swift */,
 				0252AB2423C2AB0800FD295F /* PlayerCell.swift */,
@@ -291,6 +294,7 @@
 				024DE4E723BE72F80056FF35 /* TeamsAPIClient.swift in Sources */,
 				024DE4F123BEAF6D0056FF35 /* Game.swift in Sources */,
 				0252AB2923C2B8B000FD295F /* PlayerAPIClient.swift in Sources */,
+				024D738023C4223F0039FF65 /* PredictionViewController.swift in Sources */,
 				0252AB2B23C2C83900FD295F /* UIImageView+Extensions.swift in Sources */,
 				024DE4ED23BE85FE0056FF35 /* GameCell.swift in Sources */,
 				0252AB2D23C2C8CC00FD295F /* PlayerDetailController.swift in Sources */,

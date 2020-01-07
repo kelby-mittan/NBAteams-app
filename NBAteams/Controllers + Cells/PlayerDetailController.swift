@@ -148,6 +148,15 @@ class PlayerDetailController: UIViewController {
 //        displayLink.add(to: .main, forMode: .default)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let predictionVC = segue.destination as? PredictionViewController else {
+            fatalError("could not load")
+        }
+        
+        predictionVC.player = player
+    }
+    
 }
 
 extension PlayerDetailController: UIPickerViewDataSource {

@@ -335,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nbaLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="aL3-h4-Cae">
-                                <rect key="frame" x="0.0" y="88" width="414" height="313.50000000000023"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="313.5"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courtImg" translatesAutoresizingMaskIntoConstraints="NO" id="2KG-fW-cSo">
                                 <rect key="frame" x="0.0" y="401.5" width="414" height="411.5"/>
@@ -420,10 +420,10 @@
             </objects>
             <point key="canvasLocation" x="2902.898550724638" y="495.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Prediction View Controller-->
         <scene sceneID="RdX-je-G8P">
             <objects>
-                <viewController id="8mb-dt-NaZ" sceneMemberID="viewController">
+                <viewController id="8mb-dt-NaZ" customClass="PredictionViewController" customModule="NBAteams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQ0-9t-2VS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,12 +437,38 @@
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-K0-6j2">
+                                <rect key="frame" x="100" y="362" width="214" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f2H-J3-c1Q">
+                                <rect key="frame" x="87" y="488.5" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="I4H-5h-cXZ"/>
+                                    <constraint firstAttribute="width" constant="240" id="wFW-Mx-5Ce"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiR-6p-ryK">
+                                <rect key="frame" x="190" y="403.5" width="34" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="f2H-J3-c1Q" firstAttribute="top" secondItem="xiR-6p-ryK" secondAttribute="bottom" constant="50" id="C2r-1h-sOh"/>
+                            <constraint firstItem="f2H-J3-c1Q" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="LBm-la-6rU"/>
+                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="mvq-K0-6j2" secondAttribute="trailing" constant="100" id="N0y-zF-hbL"/>
                             <constraint firstItem="W01-qa-N2I" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" constant="280" id="Nrl-kx-NHr"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" id="Rk5-E5-g55"/>
+                            <constraint firstItem="xiR-6p-ryK" firstAttribute="centerY" secondItem="SQ0-9t-2VS" secondAttribute="centerY" id="WZi-hC-fbe"/>
+                            <constraint firstItem="mvq-K0-6j2" firstAttribute="top" secondItem="hyM-Nh-oGK" secondAttribute="bottom" constant="25" id="WcU-kF-0zK"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="height" secondItem="SQ0-9t-2VS" secondAttribute="height" multiplier="0.4" id="ZRj-g8-H3j"/>
+                            <constraint firstItem="mvq-K0-6j2" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="100" id="hYr-ic-aJX"/>
+                            <constraint firstItem="xiR-6p-ryK" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="iP1-xX-B8h"/>
                             <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="W01-qa-N2I" secondAttribute="trailing" constant="100" id="lCd-6n-RDt"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="width" secondItem="SQ0-9t-2VS" secondAttribute="width" id="tes-fc-il8"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="centerX" secondItem="FpG-xI-LgY" secondAttribute="centerX" id="wu2-LT-Udp"/>
@@ -450,6 +476,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FpG-xI-LgY"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="mvq-K0-6j2" id="YWH-QP-j6p"/>
+                        <outlet property="playerImage" destination="hyM-Nh-oGK" id="XqP-RB-xnP"/>
+                        <outlet property="trustPointsLabel" destination="W01-qa-N2I" id="Ld4-O4-3re"/>
+                        <outlet property="vsTeamLogo" destination="f2H-J3-c1Q" id="goV-xi-HUS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWp-43-Pqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
