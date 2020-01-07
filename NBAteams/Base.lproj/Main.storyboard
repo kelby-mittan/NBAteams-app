@@ -186,7 +186,7 @@
         <scene sceneID="eHG-VM-fkQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="39d-dt-A0K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Teams" id="8Fi-9H-CMp"/>
+                    <tabBarItem key="tabBarItem" title="Teams" image="person.3.fill" catalog="system" id="8Fi-9H-CMp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="baC-Wd-Ws4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -335,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nbaLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="aL3-h4-Cae">
-                                <rect key="frame" x="0.0" y="88" width="414" height="313.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="313.50000000000023"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courtImg" translatesAutoresizingMaskIntoConstraints="NO" id="2KG-fW-cSo">
                                 <rect key="frame" x="0.0" y="401.5" width="414" height="411.5"/>
@@ -372,6 +372,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I28-NO-pPq">
+                                <rect key="frame" x="0.0" y="88" width="414" height="313.5"/>
+                                <connections>
+                                    <segue destination="8mb-dt-NaZ" kind="presentation" id="sjq-4d-3sE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -379,6 +385,7 @@
                             <constraint firstItem="2KG-fW-cSo" firstAttribute="trailing" secondItem="ADN-90-rmI" secondAttribute="trailing" id="9kq-G9-Rnn"/>
                             <constraint firstItem="ADN-90-rmI" firstAttribute="bottom" secondItem="PDf-kB-Eem" secondAttribute="bottom" constant="5" id="AQn-L7-eb2"/>
                             <constraint firstItem="ADN-90-rmI" firstAttribute="trailing" secondItem="PIY-q2-Cpt" secondAttribute="trailing" constant="100" id="DDz-0x-frD"/>
+                            <constraint firstItem="I28-NO-pPq" firstAttribute="height" secondItem="aL3-h4-Cae" secondAttribute="height" id="Fmi-eO-F8J"/>
                             <constraint firstItem="aL3-h4-Cae" firstAttribute="height" secondItem="g1i-JH-qQy" secondAttribute="height" multiplier="0.35" id="G6a-mm-nLH"/>
                             <constraint firstItem="EIA-jq-gnd" firstAttribute="centerX" secondItem="2KG-fW-cSo" secondAttribute="centerX" id="GkU-1M-6Zh"/>
                             <constraint firstItem="dmH-z6-FxD" firstAttribute="leading" secondItem="ADN-90-rmI" secondAttribute="leading" constant="70" id="KCL-qB-22B"/>
@@ -389,6 +396,9 @@
                             <constraint firstItem="2KG-fW-cSo" firstAttribute="bottom" secondItem="ADN-90-rmI" secondAttribute="bottom" id="TwC-l8-tS8"/>
                             <constraint firstItem="dmH-z6-FxD" firstAttribute="top" secondItem="aL3-h4-Cae" secondAttribute="bottom" constant="30" id="aOn-Os-A0Y"/>
                             <constraint firstItem="2KG-fW-cSo" firstAttribute="top" secondItem="aL3-h4-Cae" secondAttribute="bottom" id="baw-en-cUY"/>
+                            <constraint firstItem="I28-NO-pPq" firstAttribute="centerX" secondItem="aL3-h4-Cae" secondAttribute="centerX" id="cbs-pF-cyQ"/>
+                            <constraint firstItem="I28-NO-pPq" firstAttribute="width" secondItem="aL3-h4-Cae" secondAttribute="width" id="g5u-ye-ngG"/>
+                            <constraint firstItem="I28-NO-pPq" firstAttribute="centerY" secondItem="aL3-h4-Cae" secondAttribute="centerY" id="lEg-6x-dbp"/>
                             <constraint firstItem="2KG-fW-cSo" firstAttribute="leading" secondItem="ADN-90-rmI" secondAttribute="leading" id="tDA-1s-O3e"/>
                             <constraint firstItem="EIA-jq-gnd" firstAttribute="centerY" secondItem="2KG-fW-cSo" secondAttribute="centerY" id="vHn-BS-hS5"/>
                             <constraint firstItem="PDf-kB-Eem" firstAttribute="top" secondItem="EIA-jq-gnd" secondAttribute="bottom" constant="25" id="w9O-PC-0LW"/>
@@ -410,11 +420,46 @@
             </objects>
             <point key="canvasLocation" x="2902.898550724638" y="495.53571428571428"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
+        <scene sceneID="RdX-je-G8P">
+            <objects>
+                <viewController id="8mb-dt-NaZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SQ0-9t-2VS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-Nh-oGK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="337"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRUST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W01-qa-N2I">
+                                <rect key="frame" x="100" y="280" width="214" height="51.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="44"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W01-qa-N2I" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" constant="280" id="Nrl-kx-NHr"/>
+                            <constraint firstItem="hyM-Nh-oGK" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" id="Rk5-E5-g55"/>
+                            <constraint firstItem="hyM-Nh-oGK" firstAttribute="height" secondItem="SQ0-9t-2VS" secondAttribute="height" multiplier="0.4" id="ZRj-g8-H3j"/>
+                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="W01-qa-N2I" secondAttribute="trailing" constant="100" id="lCd-6n-RDt"/>
+                            <constraint firstItem="hyM-Nh-oGK" firstAttribute="width" secondItem="SQ0-9t-2VS" secondAttribute="width" id="tes-fc-il8"/>
+                            <constraint firstItem="hyM-Nh-oGK" firstAttribute="centerX" secondItem="FpG-xI-LgY" secondAttribute="centerX" id="wu2-LT-Udp"/>
+                            <constraint firstItem="W01-qa-N2I" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="100" id="yd2-G1-h5B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FpG-xI-LgY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWp-43-Pqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3916" y="496"/>
+        </scene>
+        <!--Players-->
         <scene sceneID="IgU-4Z-wDR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lzV-We-QSK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wzx-Ps-tuP"/>
+                    <tabBarItem key="tabBarItem" title="Players" image="person.fill" catalog="system" id="wzx-Ps-tuP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4wD-bQ-r5G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -433,5 +478,7 @@
     <resources>
         <image name="courtImg" width="1120" height="1148"/>
         <image name="nbaLogo2" width="1053" height="797"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
