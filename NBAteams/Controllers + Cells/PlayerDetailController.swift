@@ -20,11 +20,8 @@ class PlayerDetailController: UIViewController {
     }()
     
     var player: Player?
-    
     var seasonStat: Stat?
-    
     var selectedRow = Int()
-    
     var newGames = [Game]()
     
     private let stats = ["Games", "Minutes", "FG Made", "FG Attempts", "3's Made", "3's Attempted", "Free Throws Made", "Free Throw Attempts", "Off. Reb", "Def. Reb", "Rebound %", "Assists", "Steals", "Blocks", "Turnovers", "Fouls", "Points", "FG %", "3 PT %", "Free Throw %"]
@@ -42,7 +39,6 @@ class PlayerDetailController: UIViewController {
         statLabel.layer.masksToBounds = true
         statLabel.layer.cornerRadius = 10
         statLabel.isHidden = true
-        
         
         loadPlayerStats()
         updateUI()
@@ -180,6 +176,10 @@ extension PlayerDetailController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statName = stats[row]
         selectedRow = row
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: stats[row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
     }
     
 }

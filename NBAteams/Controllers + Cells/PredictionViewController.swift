@@ -28,24 +28,22 @@ class PredictionViewController: UIViewController {
     
     var opposition = 0 {
         didSet {
-            loadThisWeeksPTS()
+            getPredictedPoints()
         }
     }
     
     var date = String() {
         didSet {
-            loadThisWeeksPTS()
+            getPredictedPoints()
         }
     }
     
-    let goodTeams = [2,7,8,11,13,14,16,17,23,28,29]
-    let mehTeams = [3,4,12,15,21,22,27]
-    let trashTeams = [1,5,6,9,10,18,19,20,24,25,26,30]
+    let goodTeams = [2,5,8,12,13,14,16,17,22,23,28,29]
+    let trashTeams = [1,5,6,9,10,15,19,20,24,25,26,30]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        glassesImage.isHidden = true
         loadGames()
         updateUI()
     }
@@ -84,18 +82,19 @@ class PredictionViewController: UIViewController {
                     gameDate = gameDate.components(separatedBy: "T").first ?? ""
                     self?.date = gameDate
                     
-                    self?.dateLabel.text = self?.newGames.first?.date.convertISODate()
-//                    print(self?.newGames.first?.date ?? "")
+                    self?.dateLabel.text = "\(self?.newGames.first?.date.convertISODate() ?? "") \(self?.newGames.first?.status ?? "")"
                     
                     if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
                         self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
-
+                        
                         self?.opposition = (self?.newGames.first?.homeTeam.id)!
                     } else {
                         self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.visitorTeam.abbreviation)!)
-
+                        
                         self?.opposition = (self?.newGames.first?.visitorTeam.id)!
                     }
+                    
+                    print("Full Date: \(self?.newGames.first?.date ?? "")")
                     
                 }
             }
@@ -103,7 +102,7 @@ class PredictionViewController: UIViewController {
     }
     
     func getDateLastWeek() -> String {
-        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!
+        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -2, to: Date())!
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -111,14 +110,13 @@ class PredictionViewController: UIViewController {
         return lastWeekDateString
     }
     
-    private func loadThisWeeksPTS() {
-        print("opposition: \(opposition)")
-
+    private func getPredictedPoints() {
+        
         guard let playerId = player?.id else {
             showAlert(title: "Error", message: "Could not get player id.")
             return
         }
-
+        
         PlayerAPIClient.getStatsDated(for: playerId, startDate: getDateLastWeek(), endDate: date) { [weak self] (result) in
             switch result {
             case .failure(let appError):
@@ -127,36 +125,34 @@ class PredictionViewController: UIViewController {
                 }
             case .success(let stats):
                 DispatchQueue.main.async {
-
+                    
                     for stat in stats {
                         if stat.pts != 0 {
                             self?.weekPtAvg += stat.pts
                             self?.count += 1
                         }
                     }
-
+                    
                     guard let week = self?.weekPtAvg, let count = self?.count, let season = self?.seasonAvg, let oppTeam = self?.opposition, let fireTeams = self?.goodTeams, let badTeams = self?.trashTeams else {
                         return
                     }
-
+                    
                     let avg = (week / count)
-
                     var seasonWeek = (season + avg) / 2
-
                     self?.weekSeason = seasonWeek
-
+                    
                     switch season {
                     case 30...:
                         if fireTeams.contains(oppTeam) {
-                            seasonWeek -= 6
+                            seasonWeek -= 5
                         } else if badTeams.contains(oppTeam) {
-                            seasonWeek += 8
+                            seasonWeek += 7
                         }
                     case 25...30:
                         if fireTeams.contains(oppTeam) {
-                            seasonWeek -= 4
+                            seasonWeek -= 3
                         } else if badTeams.contains(oppTeam) {
-                            seasonWeek += 6
+                            seasonWeek += 5
                         }
                     case 20...25:
                         if fireTeams.contains(oppTeam) {
@@ -173,22 +169,19 @@ class PredictionViewController: UIViewController {
                     default:
                         self?.trustPointsLabel.text = "Good For...\((String(format: "%.0f", seasonWeek)))"
                     }
-
+                    
                     self?.trustPointsLabel.text = "Good For...\((String(format: "%.0f", seasonWeek)))"
-
+                    
                     print(seasonWeek)
                     print(count)
                     print(avg)
                 }
             }
         }
-        print(opposition.description)
-        print("Date: \(date)")
     }
     
-    
     func updateUI() {
-
+        
         playerImage.getImage(with: "https://nba-players.herokuapp.com/players/\(player?.lastName.lowercased() ?? "")/\(player?.firstName.lowercased() ?? "")") { [weak self] (result) in
             switch result {
             case .failure:
@@ -202,22 +195,21 @@ class PredictionViewController: UIViewController {
             }
         }
         
-        
-        print("Date: \(date)")
     }
     
     @IBAction func glassesButton(_ sender: UIButton) {
-        glassesImage.isHidden = false
         glassCount += 1
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 2.5, animations: {
             if self.glassCount % 2 == 0 {
-               self.glassesImage.frame.origin.y -= 147
-                self.glassesImage.isHidden = true
+                self.glassesImage.frame.origin.y -= 155
+                self.trustPointsLabel.frame.origin.x += 365
             } else {
-                self.glassesImage.frame.origin.y += 147
+                self.glassesImage.frame.origin.y += 155
+                self.trustPointsLabel.frame.origin.x -= 365
             }
             
         }, completion: nil)
+        
     }
     
     
