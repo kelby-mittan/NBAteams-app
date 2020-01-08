@@ -56,7 +56,10 @@ struct PlayerAPIClient {
                 do {
                     let statData = try JSONDecoder().decode(StatData.self, from: data)
                     let stats = statData.data.first
-                    completion(.success(stats!))
+                    guard let stat = stats else {
+                        return
+                    }
+                    completion(.success(stat))
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
@@ -64,9 +67,14 @@ struct PlayerAPIClient {
         }
     }
     
-    static func getStatsDated(for playerId: Int, completion: @escaping (Result<[Stat],AppError>) -> ()) {
+    
+    static func getStatsDated(for playerId: Int, startDate: String, endDate: String, completion: @escaping (Result<[Stat],AppError>) -> ()) {
+//         startDate: String, endDate: String,
+//        "2019-12-28T00:00:00.000Z"
         
-        let statEndpointString = "https://www.balldontlie.io/api/v1/stats?seasons[]=2019&player_ids[]=\(playerId.description)&start_date=2019-12-20&end_date=2020-01-06"
+        let statEndpointString = "https://www.balldontlie.io/api/v1/stats?seasons[]=2019&player_ids[]=\(playerId.description)&start_date=\(startDate)&end_date=\(endDate)"
+        
+//        let statEndpointString = "https://www.balldontlie.io/api/v1/stats?seasons[]=2019&player_ids[]=\(playerId.description)&start_date=\(startDate)&end_date=\(endDate)"
         
         guard let url = URL(string: statEndpointString) else {
             completion(.failure(.badURL(statEndpointString)))

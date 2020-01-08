@@ -13,27 +13,27 @@ class PredictionViewController: UIViewController {
     @IBOutlet var playerImage: UIImageView!
     @IBOutlet var trustPointsLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    
     @IBOutlet var vsTeamLogo: UIImageView!
+    @IBOutlet var glassesImage: UIImageView!
+    @IBOutlet var glassesButton: UIButton!
     
     var player: Player?
-    
     var seasonAvg = Double()
-    
     var weekPtAvg = Double()
-    
     var weeksStats = [Stat]()
-    
     var count = 0.0
-    
     var weekSeason = Double()
-    
     var newGames = [Game]()
+    var glassCount = 0
     
     var opposition = 0 {
         didSet {
-            // check what team?
-            //            loadGames()
+            loadThisWeeksPTS()
+        }
+    }
+    
+    var date = String() {
+        didSet {
             loadThisWeeksPTS()
         }
     }
@@ -47,6 +47,11 @@ class PredictionViewController: UIViewController {
         
         loadGames()
         //loadThisWeeksPTS()
+        updateUI()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
         updateUI()
     }
     
@@ -72,16 +77,23 @@ class PredictionViewController: UIViewController {
                             self?.newGames = (self?.newGames.sorted { $0.date < $1.date })!
                         }
                     }
+                    guard var gameDate = self?.newGames.first?.date else {
+                        return
+                    }
+                    
+                    gameDate = gameDate.components(separatedBy: "T").first ?? ""
+                    self?.date = gameDate
                     
                     self?.dateLabel.text = self?.newGames.first?.date.convertISODate()
-                    print(self?.newGames.first?.date ?? "")
+//                    print(self?.newGames.first?.date ?? "")
+                    
                     if self?.player?.team.abbreviation != self?.newGames.first?.homeTeam.abbreviation {
                         self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.homeTeam.abbreviation)!)
-                        
+
                         self?.opposition = (self?.newGames.first?.homeTeam.id)!
                     } else {
                         self?.vsTeamLogo.image = UIImage(named: (self?.newGames.first?.visitorTeam.abbreviation)!)
-                        
+
                         self?.opposition = (self?.newGames.first?.visitorTeam.id)!
                     }
                     
@@ -90,15 +102,24 @@ class PredictionViewController: UIViewController {
         }
     }
     
+    func getDateLastWeek() -> String {
+        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
+        return lastWeekDateString
+    }
+    
     private func loadThisWeeksPTS() {
         print("opposition: \(opposition)")
-        
+
         guard let playerId = player?.id else {
             showAlert(title: "Error", message: "Could not get player id.")
             return
         }
-        
-        PlayerAPIClient.getStatsDated(for: playerId) { [weak self] (result) in
+
+        PlayerAPIClient.getStatsDated(for: playerId, startDate: getDateLastWeek(), endDate: date) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 DispatchQueue.main.async {
@@ -106,24 +127,24 @@ class PredictionViewController: UIViewController {
                 }
             case .success(let stats):
                 DispatchQueue.main.async {
-                    
+
                     for stat in stats {
                         if stat.pts != 0 {
                             self?.weekPtAvg += stat.pts
                             self?.count += 1
                         }
                     }
-                    
+
                     guard let week = self?.weekPtAvg, let count = self?.count, let season = self?.seasonAvg, let oppTeam = self?.opposition, let fireTeams = self?.goodTeams, let badTeams = self?.trashTeams else {
                         return
                     }
-                    
+
                     let avg = (week / count)
-                    
+
                     var seasonWeek = (season + avg) / 2
-                    
+
                     self?.weekSeason = seasonWeek
-                    
+
                     switch season {
                     case 30...:
                         if fireTeams.contains(oppTeam) {
@@ -150,11 +171,11 @@ class PredictionViewController: UIViewController {
                             seasonWeek += 2
                         }
                     default:
-                        self?.trustPointsLabel.text = "\((String(format: "%.0f", seasonWeek)))...TRUST"
+                        self?.trustPointsLabel.text = "Good For...\((String(format: "%.0f", seasonWeek)))"
                     }
-                    
-                    self?.trustPointsLabel.text = "TRUST...\((String(format: "%.0f", seasonWeek)))"
-                    
+
+                    self?.trustPointsLabel.text = "Good For...\((String(format: "%.0f", seasonWeek)))"
+
                     print(seasonWeek)
                     print(count)
                     print(avg)
@@ -162,7 +183,7 @@ class PredictionViewController: UIViewController {
             }
         }
         print(opposition.description)
-  
+        print("Date: \(date)")
     }
     
     
@@ -180,6 +201,24 @@ class PredictionViewController: UIViewController {
                 }
             }
         }
+        
+        
+        print("Date: \(date)")
     }
+    
+    @IBAction func glassesButton(_ sender: UIButton) {
+        glassCount += 1
+        UIView.animate(withDuration: 1, animations: {
+            if self.glassCount % 2 == 0 {
+               self.glassesImage.frame.origin.y -= 72
+                self.glassesButton.frame.origin.y -= 72
+            } else {
+                self.glassesImage.frame.origin.y += 72
+                self.glassesButton.frame.origin.y += 72
+            }
+            
+        }, completion: nil)
+    }
+    
     
 }

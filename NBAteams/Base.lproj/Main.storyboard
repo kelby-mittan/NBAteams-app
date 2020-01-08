@@ -335,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nbaLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="aL3-h4-Cae">
-                                <rect key="frame" x="0.0" y="88" width="414" height="313.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="313.50000000000023"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courtImg" translatesAutoresizingMaskIntoConstraints="NO" id="2KG-fW-cSo">
                                 <rect key="frame" x="0.0" y="401.5" width="414" height="411.5"/>
@@ -451,33 +451,54 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRUST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W01-qa-N2I">
-                                <rect key="frame" x="100" y="345" width="214" height="51.5"/>
+                                <rect key="frame" x="20" y="345" width="374" height="51.5"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="44"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunglasses" translatesAutoresizingMaskIntoConstraints="NO" id="nzN-Da-aOF">
+                                <rect key="frame" x="134.5" y="0.0" width="145" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="99e-Ap-POI"/>
+                                    <constraint firstAttribute="height" constant="75" id="uyv-4F-HOA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMs-01-F78">
+                                <rect key="frame" x="134.5" y="0.0" width="145" height="75"/>
+                                <connections>
+                                    <action selector="glassesButton:" destination="8mb-dt-NaZ" eventType="touchUpInside" id="XMu-NN-2hI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="nzN-Da-aOF" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="40l-zo-JRN"/>
+                            <constraint firstItem="tMs-01-F78" firstAttribute="centerX" secondItem="nzN-Da-aOF" secondAttribute="centerX" id="6Xu-3G-r8M"/>
                             <constraint firstItem="xiR-6p-ryK" firstAttribute="top" secondItem="mvq-K0-6j2" secondAttribute="bottom" constant="10" id="GDW-8k-nM8"/>
                             <constraint firstItem="f2H-J3-c1Q" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="LBm-la-6rU"/>
                             <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="mvq-K0-6j2" secondAttribute="trailing" constant="20" id="N0y-zF-hbL"/>
+                            <constraint firstItem="tMs-01-F78" firstAttribute="height" secondItem="nzN-Da-aOF" secondAttribute="height" id="Qfd-XI-xBc"/>
                             <constraint firstItem="mvq-K0-6j2" firstAttribute="top" secondItem="W01-qa-N2I" secondAttribute="bottom" constant="10" id="ReG-lV-gkP"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" id="Rk5-E5-g55"/>
                             <constraint firstItem="f2H-J3-c1Q" firstAttribute="top" secondItem="xiR-6p-ryK" secondAttribute="bottom" constant="20" id="UAX-CH-xLW"/>
+                            <constraint firstItem="tMs-01-F78" firstAttribute="width" secondItem="nzN-Da-aOF" secondAttribute="width" id="X74-lv-b4F"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="height" secondItem="SQ0-9t-2VS" secondAttribute="height" multiplier="0.4" id="ZRj-g8-H3j"/>
                             <constraint firstItem="W01-qa-N2I" firstAttribute="top" secondItem="hyM-Nh-oGK" secondAttribute="bottom" constant="8" id="h5s-VA-tz6"/>
+                            <constraint firstItem="tMs-01-F78" firstAttribute="centerY" secondItem="nzN-Da-aOF" secondAttribute="centerY" id="hCf-VX-waP"/>
                             <constraint firstItem="mvq-K0-6j2" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="20" id="hYr-ic-aJX"/>
                             <constraint firstItem="xiR-6p-ryK" firstAttribute="centerX" secondItem="SQ0-9t-2VS" secondAttribute="centerX" id="iP1-xX-B8h"/>
-                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="W01-qa-N2I" secondAttribute="trailing" constant="100" id="lCd-6n-RDt"/>
+                            <constraint firstItem="FpG-xI-LgY" firstAttribute="trailing" secondItem="W01-qa-N2I" secondAttribute="trailing" constant="20" id="lCd-6n-RDt"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="width" secondItem="SQ0-9t-2VS" secondAttribute="width" id="tes-fc-il8"/>
+                            <constraint firstItem="nzN-Da-aOF" firstAttribute="top" secondItem="FpG-xI-LgY" secondAttribute="top" id="wD6-Xh-RUZ"/>
                             <constraint firstItem="hyM-Nh-oGK" firstAttribute="centerX" secondItem="FpG-xI-LgY" secondAttribute="centerX" id="wu2-LT-Udp"/>
-                            <constraint firstItem="W01-qa-N2I" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="100" id="yd2-G1-h5B"/>
+                            <constraint firstItem="W01-qa-N2I" firstAttribute="leading" secondItem="FpG-xI-LgY" secondAttribute="leading" constant="20" id="yd2-G1-h5B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FpG-xI-LgY"/>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="mvq-K0-6j2" id="YWH-QP-j6p"/>
+                        <outlet property="glassesButton" destination="tMs-01-F78" id="VjS-Ae-WEo"/>
+                        <outlet property="glassesImage" destination="nzN-Da-aOF" id="ApR-AY-QZP"/>
                         <outlet property="playerImage" destination="hyM-Nh-oGK" id="XqP-RB-xnP"/>
                         <outlet property="trustPointsLabel" destination="W01-qa-N2I" id="Ld4-O4-3re"/>
                         <outlet property="vsTeamLogo" destination="f2H-J3-c1Q" id="goV-xi-HUS"/>
@@ -485,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWp-43-Pqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="496"/>
+            <point key="canvasLocation" x="3915.9420289855075" y="495.53571428571428"/>
         </scene>
         <!--Players-->
         <scene sceneID="IgU-4Z-wDR">
@@ -512,5 +533,6 @@
         <image name="nbaLogo2" width="1053" height="797"/>
         <image name="person.3.fill" catalog="system" width="71" height="34"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="sunglasses" width="700" height="232"/>
     </resources>
 </document>
