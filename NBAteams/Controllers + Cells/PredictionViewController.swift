@@ -45,8 +45,8 @@ class PredictionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        glassesImage.isHidden = true
         loadGames()
-        //loadThisWeeksPTS()
         updateUI()
     }
     
@@ -207,14 +207,14 @@ class PredictionViewController: UIViewController {
     }
     
     @IBAction func glassesButton(_ sender: UIButton) {
+        glassesImage.isHidden = false
         glassCount += 1
         UIView.animate(withDuration: 1, animations: {
             if self.glassCount % 2 == 0 {
-               self.glassesImage.frame.origin.y -= 72
-                self.glassesButton.frame.origin.y -= 72
+               self.glassesImage.frame.origin.y -= 147
+                self.glassesImage.isHidden = true
             } else {
-                self.glassesImage.frame.origin.y += 72
-                self.glassesButton.frame.origin.y += 72
+                self.glassesImage.frame.origin.y += 147
             }
             
         }, completion: nil)
