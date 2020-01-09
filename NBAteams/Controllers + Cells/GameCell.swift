@@ -29,7 +29,7 @@ class GameCell: UITableViewCell {
         
         if selectedTeamId == game.homeTeam.id {
             oppositionLabel.text = game.visitorTeam.full_name
-            vsAtLabel.text = "VS"
+            vsAtLabel.text = "   VS"
             oppositionImage.image = UIImage(named: game.visitorTeam.abbreviation)
             if game.homeTeamScore > game.visitorTeamScore {
                 scoreLabel.text = "WIN, \(game.homeTeamScore)-\(game.visitorTeamScore)"
@@ -40,7 +40,7 @@ class GameCell: UITableViewCell {
             }
         } else {
             oppositionLabel.text = game.homeTeam.full_name
-            vsAtLabel.text = "@"
+            vsAtLabel.text = "   @"
             oppositionImage.image = UIImage(named: game.homeTeam.abbreviation)
             if game.homeTeamScore > game.visitorTeamScore {
                 scoreLabel.text = "Loss, \(game.homeTeamScore)-\(game.visitorTeamScore)"
