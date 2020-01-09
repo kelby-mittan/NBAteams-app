@@ -78,6 +78,7 @@ private func getPredictedPoints() {
 ## ScreenShot of App
 
 ![teamsTable1](Assets/teamsTable1.png)
+
 ![playerController1](Assets/playerController1.png)
 
 
