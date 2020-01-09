@@ -2,7 +2,7 @@
 
 ## Description
 
-Points Predictor
+This App is designed to display all teams in the NBA, as well as load the schedule for a selected team for the 2019-2020 season. In a separate tab in the app, the user can search for a player and see the player's stats for the season. One feature this app includes is the ability to come up for a predicted number of points the selected player will score in their next upcoming game. This prediction is based on the player's season average, how well they've been performing in the previous 7 games, and the strength of the upcoming opposition's defense. The code below shows this.
 
 ## Code Snippet
 
