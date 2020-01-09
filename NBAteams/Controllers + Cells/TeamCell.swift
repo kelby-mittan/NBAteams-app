@@ -16,6 +16,9 @@ class TeamCell: UITableViewCell {
     
     
     func configureCell(for team: Team) {
+        
+        teamLogo.layer.cornerRadius = 35
+        
         cityLabel.text = team.city
         
         teamLogo.image = UIImage(named: team.abbreviation)

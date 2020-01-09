@@ -39,7 +39,7 @@ class PredictionViewController: UIViewController {
     }
     
     let goodTeams = [2,5,8,12,13,14,16,17,22,23,28,29]
-    let trashTeams = [1,5,6,9,10,15,19,20,24,25,26,30]
+    let trashTeams = [1,6,9,10,15,19,20,24,25,26,30]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,9 +172,10 @@ class PredictionViewController: UIViewController {
                     
                     self?.trustPointsLabel.text = "Good For...\((String(format: "%.0f", seasonWeek)))"
                     
-                    print(seasonWeek)
-                    print(count)
-                    print(avg)
+//                    print(seasonWeek)
+//                    print(count)
+//                    print(avg)
+//                    dump(stats)
                 }
             }
         }

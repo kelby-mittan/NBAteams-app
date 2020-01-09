@@ -21,6 +21,8 @@ class GameCell: UITableViewCell {
     
     func configureCell(for game: Game) {
         
+        oppositionImage.layer.cornerRadius = 25
+        
         let theDate = game.date.convertISODate()
         dateLabel.text = theDate.components(separatedBy: ",").first
         statusLabel.text = game.status
