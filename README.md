@@ -79,6 +79,8 @@ private func getPredictedPoints() {
 
 ![teamsTable1](Assets/teamsTable1.png)
 
+![playerController1](Assets/playerController1.png)
+
 
 ## GIF
 
