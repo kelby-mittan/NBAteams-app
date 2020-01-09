@@ -31,35 +31,5 @@ struct Game: Codable {
     
 }
 
-//"data": [
-//{
-//    "id": 62602,
-//    "date": "2019-10-25T00:00:00.000Z",
-//    "home_team": {
-//        "id": 3,
-//        "abbreviation": "BKN",
-//        "city": "Brooklyn",
-//        "conference": "East",
-//        "division": "Atlantic",
-//        "full_name": "Brooklyn Nets",
-//        "name": "Nets"
-//    },
-//    "home_team_score": 113,
-//    "period": 4,
-//    "postseason": false,
-//    "season": 2019,
-//    "status": "Final",
-//    "time": "     ",
-//    "visitor_team": {
-//        "id": 20,
-//        "abbreviation": "NYK",
-//        "city": "New York",
-//        "conference": "East",
-//        "division": "Atlantic",
-//        "full_name": "New York Knicks",
-//        "name": "Knicks"
-//    },
-//    "visitor_team_score": 109
-//},
 
 

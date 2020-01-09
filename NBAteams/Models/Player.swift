@@ -34,21 +34,3 @@ struct Player: Codable {
     
 }
 
-//"data": [
-//{
-//    "id": 797,
-//    "first_name": "Thomas",
-//    "height_feet": null,
-//    "height_inches": null,
-//    "last_name": "Jordan",
-//    "position": "",
-//    "team": {
-//        "id": 23,
-//        "abbreviation": "PHI",
-//        "city": "Philadelphia",
-//        "conference": "East",
-//        "division": "Atlantic",
-//        "full_name": "Philadelphia 76ers",
-//        "name": "76ers"
-//    },
-//    "weight_pounds": null
