@@ -87,3 +87,5 @@ private func getPredictedPoints() {
 ## GIF
 
 ![gif](Assets/nba-app.gif)
+![gif](Assets/nba-app3.gif)
+
